@@ -17,11 +17,11 @@ detector.setModelPath(os.path.join(execution_path , "resnet50_coco_best_v2.0.1.h
 #Load the model
 detector.loadModel()
 
-#analyzing the image and then creating a file that highlights the isolated objects in the initial folder
+#analyzing the image and then creating a file that highlights the isolated objects in the initial folder.
 detections = detector.detectObjectsFromImage(input_image=os.path.join(execution_path , "input.jpg"),
                                              output_image_path=os.path.join(execution_path , "output.jpg"))
 
-#compare the image to the images stored in the COCO database and find the percentage of similarity
+#compare the objects to the images stored in the COCO database and find the percentage of similarity. Then print it out.
 for x in detections:
     print(x["name"] , " : " , x["percentage_probability"] )
 
